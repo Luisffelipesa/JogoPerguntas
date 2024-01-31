@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas e Respostas</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Adicionei um arquivo CSS para estilos -->
+</head>
+<body>
+    <div id="content">
+        <h1>Bem-vindo ao Show do Luisão</h1>
+        <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    </div>
+
+    <script>
+        var perguntas = [
+             {
+                 pergunta: "Qual animal é o Sonic?",
+                 imagem: "img/sonic.jpg",
+                 respostas: ["Porco-espinho", "Tamanduá", "Rato", "Tatu"],
+                 correta: 0,
+                 dica: "O Sonic é um porco-espinho."
+             },
+             {
+                 pergunta: "Qual mangá com número recorde de vendas no Japão?",
+                 imagem: "img/mangas.jpg",
+                 respostas: ["Naruto", "Dragon Ball", "One Piece", "Kimetsu no Yaiba"],
+                 correta: 2,
+                 dica: "One Piece é o mangá com o número recorde de vendas no Japão."
+             },
+             {
+                 pergunta: "Qual o nome do principal velocista do desenho da Liga da Justiça?",   
+                 imagem: "img/flashs.jpg",          
+                 respostas: ["Jay Garrick", "Berry Allen", "Wally West", "Bart Allen"],
+                 correta: 2,
+                 dica: "O principal velocista da Liga da Justiça é o Wally West."
+             },
+             {
+                 pergunta: "Qual o total de torres se tem no mapa principal de League of Legends?",
+                 imagem: "img/lol.jpg",
+                 respostas: ["20", "22", "19", "25"],
+                 correta: 1,
+                 dica: "O mapa principal de League of Legends tem 22 torres."
+             },
+             {
+                 pergunta: "Como se chama a nave usada por Doctor Who para viajar pelo tempo-espaço?",
+                 imagem: "img/tardis.jpg",
+                 respostas: ["Delorean", "Time-Turner", "Time machine", "TARDIS"],
+                 correta: 3,
+                 dica: "A nave usada por Doctor Who é chamada de TARDIS."
+             },
+             {
+                 pergunta: "Qual apelido dado aos animes: Bleach, One Piece e Naruto, para se referir a sua popularidade?",
+                 imagem: "img/bigthree.png",
+                 respostas: ["The Big Tree", "The Great Three", "The Grand Three", "The Big Three"],
+                 correta: 3,
+                 dica: "Bleach, One Piece e Naruto são conhecidos como The Big Three."
+             },
+             {
+                 pergunta: "Qual animal é o Rocket Raccoon?",
+                 imagem: "img/guardioes.jpeg",
+                 respostas: ["Cachorro", "Raposa", "Guepardo", "Guaxinim"],
+                 correta: 3,
+                 dica: "Rocket Raccoon é um guaxinim."
+             },
+             {
+                 pergunta: "Quantos rounds são necessários para vencer uma partida de CS:GO atualmente?",
+                 imagem: "img/cs.jpg",
+                 respostas: ["10", "13", "15", "17"],
+                 correta: 1,
+                 dica: "São necessários 13 rounds para vencer uma partida de CS:GO atualmente."
+             },
+             {
+                 pergunta: "Como chama a região em que Frodo vivia na Terra Média?",
+                 imagem: "img/senhoroaneis.jpg",
+                 respostas: ["Mordor", "Condado", "Gryffindor", "Gondor"],
+                 correta: 1,
+                 dica: "Frodo vivia no Condado, na Terra Média."
+             },
+             {
+                 pergunta: "Porque o anime Histórias de Terror tem uma dublagem cômica na sua versão americana?",
+                 imagem: "img/fantasma.png",
+                 respostas: [
+                     "Pois os criadores acharam cômico",
+                     "Pois os dubladores não sabiam dublar",
+                     "Porque o anime tratava de assuntos ilegais",
+                     "Pois os dubladores não foram pagos"
+                 ],
+                 correta: 3,
+                 dica: "O anime Histórias de Terror tem uma dublagem cômica na versão americana porque os criadores acharam cômico."
+             },
+             {
+                 pergunta: "Em qual filme aparece o anti-herói Rorschach?",
+                 imagem: "img/roecha.jpg",
+                 respostas: ["Watchmen", "Dr. Manhattan", "Liga da Justiça", "Capitã Marvel"],
+                 correta: 0,
+                 dica: "O anti-herói Rorschach aparece no filme Watchmen."
+             },
+             {
+                 pergunta: "Em RPG, qual classe tem vantagem contra undead?",
+                 imagem: "img/ded.jpg",
+                 respostas: ["Clérigo", "Paladino", "Mago", "Monge"],
+                 correta: 0,
+                 dica: "A classe Clérigo tem vantagem contra undead em RPG."
+             },
+             {
+                 pergunta: "Qual é o nome do primeiro mestre Pokémon que aparece?",
+                 imagem: "img/misty.jpg",
+                 respostas: ["Sabrina", "Brock", "Erika", "Misty"],
+                 correta: 3,
+                 dica: "O primeiro mestre Pokémon que aparece é a Misty."
+             },
+             {
+                 pergunta: "O que é o One Piece?",
+                 imagem: "img/one.jpeg",
+                 respostas: [
+                     "A jornada é o verdadeiro One Piece",
+                     "Os amigos que fizemos ao longo do caminho",
+                     "Ainda não foi descoberto pelos fãs",
+                     "Uma grande pilha de ouro"
+                 ],
+                 correta: 2,
+                 dica: "One Piece é uma grande pilha de ouro."
+             },
+             {
+                 pergunta: "Quais os conjuntos de heróis fazem parte da equipe 'Os Defensores'?",
+                 imagem: "img/def.jpg",
+                 respostas: [
+                     "Jhon Wick - Samurai X - Green Flash - Darth Vader",
+                     "Jessica Jones - Luke Cage - Punho de Ferro - Demolidor",
+                     "Motoqueiro Fantasma - Homem Aranha - Pistoleiro - Shang-Chi",
+                     "Miss Marvel - Arqueiro Verde - Namor - Drax"
+                 ],
+                 correta: 1,
+                 dica: "Os Defensores incluem Jessica Jones, Luke Cage, Punho de Ferro e Demolidor."
+             }
+         ];
+
+        var currentQuestion = 0;
+        var totalQuestions = perguntas.length;
+        var pontuacao = 0;
+        var rank = 1;
+
+        function iniciarJogo() {
+            exibirPergunta();
+        }
+
+        function exibirPergunta() {
+            var contentDiv = document.getElementById('content');
+            var perguntaAtual = perguntas[currentQuestion];
+
+            var html = '<h2>' + perguntaAtual.pergunta + '</h2>';
+            html += '<img src="' + perguntaAtual.imagem + '" alt="Imagem da pergunta">';
+            for (var i = 0; i < perguntaAtual.respostas.length; i++) {
+                html += '<input type="radio" name="resposta" value="' + i + '"> ' + perguntaAtual.respostas[i] + '<br>';
+            }
+            html += '<br><button onclick="responder()">Responder</button>';
+
+            contentDiv.innerHTML = html;
+        }
+
+        function responder() {
+            var respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+
+            if (!respostaSelecionada) {
+                alert('Selecione uma resposta!');
+                return;
+            }
+
+            var resposta = parseInt(respostaSelecionada.value);
+            var perguntaAtual = perguntas[currentQuestion];
+
+            if (resposta === perguntaAtual.correta) {
+                pontuacao++;
+                if (pontuacao % 5 === 0) {
+                    rank++;
+                }
+                if (currentQuestion < totalQuestions - 1) {
+                    currentQuestion++;
+                    exibirPergunta();
+                } else {
+                    exibirVitoria();
+                }
+            } else {
+                exibirDica(perguntaAtual.dica);
+            }
+        }
+
+        function exibirDica(dica) {
+    var contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = '<h2>Resposta incorreta. Aqui está uma dica: ' + dica + '</h2>';
+    
+    // Decrementa um ponto da pontuação
+    if (pontuacao > 0) {
+        pontuacao--;
+    }
+
+    setTimeout(exibirPergunta, 3000); // Exibe a próxima pergunta após 3 segundos
+}
+
+
+        function exibirVitoria() {
+    var contentDiv = document.getElementById('content');
+    var medalha = '';
+
+    if (pontuacao < 5) {
+        medalha = 'Bronze';
+    } else if (pontuacao >= 5 && pontuacao <= 10) {
+        medalha = 'Prata';
+    } else {
+        medalha = 'Ouro';
+    }
+
+    contentDiv.innerHTML = '<h2>Parabéns! Você respondeu todas as perguntas corretamente!</h2>';
+    contentDiv.innerHTML += '<h3>Sua pontuação: ' + pontuacao + '</h3>';
+    contentDiv.innerHTML += '<h3>Sua medalha: ' + medalha + '</h3>';
+}
+
+    </script>
+</body>
+</html>

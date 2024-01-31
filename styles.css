@@ -1,0 +1,77 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Cor de fundo escura */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+    max-width: 800px; /* Aumentamos um pouco a largura */
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+    text-align: center;
+    color: #333; /* Cor do texto principal */
+}
+
+h1, h2 {
+    color: #ffcc00; /* Amarelo */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ffcc00; /* Amarelo */
+    color: #1a1a1a; /* Cor de fundo escura */
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e6b800; /* Amarelo mais escuro */
+}
+
+label {
+    display: block;
+    margin: 10px 0; /* Adiciona espaço entre as opções de resposta */
+    color: #333;
+    font-weight: bold; /* Texto em negrito */
+}
+
+input[type="radio"] {
+    vertical-align: middle; /* Alinha os botões de opção verticalmente */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Define a altura máxima para as imagens */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: block; /* Garante que as imagens sejam exibidas como blocos */
+    margin-left: auto; /* Centraliza a imagem */
+    margin-right: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
